@@ -188,18 +188,14 @@
             </div>
         </div>
     </body>
-    <script src="/socket.io/socket.io.js"></script>
     <script>
-        var socket = io();
         document.getElementById("torpedo").onclick = () => {
+            document.getElementById("ion-cannon").disabled = false
             document.getElementById("torpedo").disabled = true
-            var b = parseInt(document.getElementById("enemy-armor").innerHTML)
-            document.getElementById("enemy-armor").innerHTML = b-2
         }
         document.getElementById("ion-cannon").onclick = () => {
+            document.getElementById("torpedo").disabled = false
             document.getElementById("ion-cannon").disabled = true
-            var b = parseInt(document.getElementById("enemy-armor").innerHTML)
-            document.getElementById("enemy-armor").innerHTML = b-3
         }
     </script>
 </html>
