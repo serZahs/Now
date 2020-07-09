@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <!-- @TODO: investigate the meta tag -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <style>
+            body {
+                font-family: 'PxPlus IBM VGA8';
+                background-color: #1d1d1d;
+                color: #fdffe3;
+                font-size: 20px;
+            }
+            strong {
+                color: #ff4b4b;
+            }
+            button {
+                font-family: 'PxPlus IBM VGA8';
+                font-size: 18px; 
+                background-color: #474747;
+                color: #cacaca;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-color: #cacaca;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border-top-right-radius: 5px;
+                border-width: 2px;
+                text-align: left;
+            }
+            button:disabled {
+                background-color: #cacaca;
+                color: #474747;
+                border-color: #474747;
+            }
+            .success-btn {
+                background-color: #010f94;
+                color: #ffffff;
+                border-color: #0016db;
+            }
+            .danger-btn {
+                background-color: #940000;
+                color: #ffffff;
+                border-color: #db0202;
+            }
+            .bonus {
+                color: #e14bff;
+            }
+            h1 {
+                margin-bottom: 0px;
+                margin-top: 0px;
+                font-size: 20px;
+                font-weight: bolder;
+                color: #979797;
+            }
+            h2 {
+                margin-top: 0px;
+                margin-bottom: 0px;
+                font-size: 18px;
+                color: #22ff77;
+            }
+            .story {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            .container {
+                display: flex;
+                flex: auto;
+                flex-direction: column;
+                height: 100%;
+            }
+            .content {
+                overflow-y: auto;
+            }
+            .dmg {
+                color: #ff4b4b;
+            }
+            .cooldown {
+                color: #8ae4ff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>ENEMY ARMOR: <span id="enemy-armor">20</span>/20</h1>
+                <h2>Qwazilian Cruiser</h2>
+            </div>
+            <div class="content">
+                <p class="story">The <em>Bandito</em> bombards the enemy ship with lasers <strong>[2<span class="bonus">+1</span> DMG]</strong>. 
+                    The enemy begins charging their hyperdrives. They manage to hit the <em>Bandito</em> with 
+                    a stray torpedo <strong>[3 DMG]</strong>. There is a breach in the <em>Bandito</em>'s hull.
+                    You scramble to the engine room to repair the damage. The enemy fires a class III ion
+                    cannon, but fortunately it narrrowly avoids the <em>Bandito</em>'s starboard side. You
+                    respond back with an ion cannon of your own. It makes impact on the enemy's left thruster, 
+                    disabling their movement capabilities <strong>[3 DMG]</strong>.
+                    With the cruiser's maneuverability heavily reduced, the <em>Bandito</em> moves in to flank
+                    the enemy. The Qwazilians fire a barrage of lasers in desperation however your expert piloting
+                    allows you to dodge most of them.   
+                </p>
+            </div>
+            <div class="footer">
+                <button class="combat-btn" id="torpedo">Fire lasers [2 DMG,2 TURN,30% MISS]</button>
+                <button class="combat-btn" id="ion-cannon">Fire ion cannons [3 DMG,4 TURN]</button>
+                <button class="success-btn">Engage transporter</button>
+                <button class="success-btn">Attempt landing on nearby planet</button>
+                <button class="danger-btn">Evacuate starship</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        document.getElementById("torpedo").onclick = () => {
+            document.getElementById("torpedo").disabled = true
+            var b = parseInt(document.getElementById("enemy-armor").innerHTML)
+            document.getElementById("enemy-armor").innerHTML = b-2
+        }
+        document.getElementById("ion-cannon").onclick = () => {
+            document.getElementById("ion-cannon").disabled = true
+            var b = parseInt(document.getElementById("enemy-armor").innerHTML)
+            document.getElementById("enemy-armor").innerHTML = b-3
+        }
+    </script>
+</html>
