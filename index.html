@@ -1,11 +1,18 @@
+<!DOCTYPE html>
 <html>
     <head>
         <!-- @TODO: investigate the meta tag -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <title>Astral</title>
         <style>
             @font-face {
                 font-family: 'PxPlus IBM VGA8';
                 src: url('PxPlus_IBM_VGA8.ttf');
+            }
+            html, body {
+                height: 100%;
+                margin: 0px;
+                padding: 0px;
             }
             body {
                 font-family: 'PxPlus IBM VGA8';
@@ -18,7 +25,7 @@
             }
             button {
                 font-family: 'PxPlus IBM VGA8';
-                font-size: 18px; 
+                font-size: 20px; 
                 background-color: #474747;
                 color: #cacaca;
                 padding-top: 5px;
@@ -34,9 +41,9 @@
                 text-align: left;
             }
             button:disabled {
-                background-color: #cacaca;
-                color: #474747;
-                border-color: #474747;
+                background-color: #333333;
+                color: #5a5a5a;
+                border-color: #5a5a5a;
             }
             .success-btn {
                 background-color: #010f94;
@@ -61,7 +68,11 @@
             h2 {
                 margin-top: 0px;
                 margin-bottom: 0px;
-                font-size: 18px;
+                font-size: 20px;
+                color: #22ff77;
+            }
+            .name {
+                font-size: 20px;
                 color: #22ff77;
             }
             .story {
@@ -73,9 +84,12 @@
                 flex: auto;
                 flex-direction: column;
                 height: 100%;
+                padding: 8px;
+                box-sizing: border-box;
             }
             .content {
                 overflow-y: auto;
+                background-color: #2c2c2c;
             }
             .dmg {
                 color: #ff4b4b;
@@ -83,37 +97,100 @@
             .cooldown {
                 color: #8ae4ff;
             }
+            img {
+                width: 64px;
+                height: auto;
+                align-self: flex-start;
+                flex-shrink: 0;
+                margin-right: 5px;
+                margin-left: 5px;
+            }
+            .message {
+                display: flex;
+                flex-direction: row;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .baddie {
+                transform: scaleX(-1);
+            }
+            .message p {
+                flex-grow: 1;
+                margin-top: 0px;
+                margin-bottom: 0px;
+                /*background-color: #1b1b1b;
+                border-radius: 10px;
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top: 5px;
+                padding-bottom: 5px;*/
+            }
+            .left p {
+                text-align: left;
+            }
+            .right p {
+                text-align: right;
+            }
+            .combat-text {
+                color: #ff0000;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <div class="header">
-                <h1>ENEMY ARMOR: <span id="enemy-armor">20</span>/20</h1>
-                <h2>Qwazilian Cruiser</h2>
+                <!-- @LATER: Change this to something else besides h1/h2 (Safari Reader View) -->
+                <h1>System: Alpha Centauri</h1>
+                <h2 class="combat-text">COMBAT</h2>
             </div>
             <div class="content">
-                <p class="story">The <em>Bandito</em> bombards the enemy ship with lasers <strong>[2<span class="bonus">+1</span> DMG]</strong>. 
-                    The enemy begins charging their hyperdrives. They manage to hit the <em>Bandito</em> with 
-                    a stray torpedo <strong>[3 DMG]</strong>. There is a breach in the <em>Bandito</em>'s hull.
-                    You scramble to the engine room to repair the damage. The enemy fires a class III ion
-                    cannon, but fortunately it narrrowly avoids the <em>Bandito</em>'s starboard side. You
-                    respond back with an ion cannon of your own. It makes impact on the enemy's left thruster, 
-                    disabling their movement capabilities <strong>[3 DMG]</strong>.
-                    With the cruiser's maneuverability heavily reduced, the <em>Bandito</em> moves in to flank
-                    the enemy. The Qwazilians fire a barrage of lasers in desperation however your expert piloting
-                    allows you to dodge most of them.   
-                </p>
+                <div class="message left">
+                    <img src="hero.jpeg">
+                    <p><span class="name">Hero</span><br />Good evening gentlemen.</p>
+                </div>
+                <div class="message right">
+                    <p><span class="name">Qwazilian pilot</span><br />Good evening? I believe the sun had set long ago.</p>
+                    <img class="baddie" src="enemy_1.jpeg">
+                </div>
+                <div class="message left">
+                    <img src="hero.jpeg">
+                    <p><span class="name">Hero</span><br />I don't think so good sir. If it had, everyone would be up.</p>
+                </div>
+                <div class="message right">
+                    <p><span class="name">Qwazilian engineer</span><br />Maybe they're frightened by you.</p>
+                    <img class="baddie" src="enemy_2.jpeg">
+                </div>
+                <div class="message left">
+                    <img src="hero.jpeg">
+                    <p><span class="name">Hero</span><br />Goodness me, I'm not a scary person. Ok yes, I might have been too stern with
+                        some of my younger students, but it was only for their own good. As I've 
+                        matured I've been less demanding of my students.
+                    </p>
+                </div>
+                <div class="message right">
+                    <p><span class="name">Qwazilian pilot</span><br />Get a load of this joker, Masgrove.</p>
+                    <img class="baddie" src="enemy_1.jpeg">
+                </div>
+                <div class="message right">
+                    <p><span class="name">Qwazilian engineer</span><br />You're telling me.</p>
+                    <img class="baddie" src="enemy_2.jpeg">
+                </div>
+                <div class="message left">
+                    <img src="hero.jpeg">
+                    <p><span class="name">Hero</span><br />Gentlemen, enough talk. Let's partake in a good old-fashioned rumble.</p>
+                </div>
             </div>
-            <div class="footer">
-                <button class="combat-btn" id="torpedo">Fire lasers [2 DMG,2 TURN,30% MISS]</button>
-                <button class="combat-btn" id="ion-cannon">Fire ion cannons [3 DMG,4 TURN]</button>
-                <button class="success-btn">Engage transporter</button>
-                <button class="success-btn">Attempt landing on nearby planet</button>
-                <button class="danger-btn">Evacuate starship</button>
+            <div class="footer" id="footer">
+                <button class="combat-btn" id="torpedo">Fire blaster [2 DMG,1 TURN,20% MISS]</button>
+                <button class="combat-btn" id="ion-cannon">Toss plasma grenade [4 DMG,3 TURN,10% MISS]</button>
+                <button class="success-btn">Charge nearest enemy</button>
+                <button class="danger-btn">Hail transport engineer</button>
             </div>
         </div>
     </body>
+    <script src="/socket.io/socket.io.js"></script>
     <script>
+        var socket = io();
         document.getElementById("torpedo").onclick = () => {
             document.getElementById("torpedo").disabled = true
             var b = parseInt(document.getElementById("enemy-armor").innerHTML)
